@@ -200,23 +200,7 @@ var SB_KEY = SB_ANON;
 
 var delId = null, ingN = 0;
 
-function sbFetch(path, opts) {
-  opts = opts || {};
-  var headers = {
-    'apikey': SB_KEY,
-    'Authorization': 'Bearer ' + SB_KEY,
-    'Content-Type': 'application/json',
-  };
-  if (opts.prefer) headers['Prefer'] = opts.prefer;
-  return fetch(SB_URL + path, {
-    method: opts.method || 'GET',
-    headers: headers,
-    body: opts.body ? JSON.stringify(opts.body) : undefined,
-  }).then(function(r) {
-    if (r.status === 204) return [];
-    return r.json().then(function(d) { d._status = r.status; return d; });
-  });
-}
+
 
 // ═══════════════════════════════════════════════════════
 // NAVIGATION
