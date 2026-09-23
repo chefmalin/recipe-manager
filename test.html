@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"/><title>Test Supabase</title></head>
+<body style="font-family:sans-serif;padding:2rem">
+<h2>Test connexion Supabase</h2>
+<div id="result">Chargement...</div>
+<script>
+var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcmVnamJ5YXRub2F6eXlmd21qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxODMyMjAsImV4cCI6MjEwNTc1OTIyMH0.3wdp1l-61dSaFyVKDqKr9sM0SlUZT-y6wmDJ0Io9JhI';
+fetch('https://naregjbyatnoazyyfwmj.supabase.co/rest/v1/recipes?select=id,name,calories&limit=5', {
+  headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY }
+})
+.then(function(r){ return r.json(); })
+.then(function(d){
+  if(Array.isArray(d)){
+    document.getElementById('result').innerHTML = '<p style="color:green">✅ CONNEXION OK — ' + d.length + ' recette(s) trouvee(s)</p><pre>' + JSON.stringify(d, null, 2) + '</pre>';
+  } else {
+    document.getElementById('result').innerHTML = '<p style="color:red">❌ Erreur: ' + JSON.stringify(d) + '</p>';
+  }
+})
+.catch(function(e){
+  document.getElementById('result').innerHTML = '<p style="color:red">❌ Erreur reseau: ' + e.message + '</p>';
+});
+</script>
+</body>
+</html>
