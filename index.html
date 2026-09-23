@@ -195,7 +195,10 @@ textarea{resize:vertical;min-height:70px}
 // CONFIGURATION SUPABASE
 // ═══════════════════════════════════════════════════════
 var SB_URL = 'https://naregjbyatnoazyyfwmj.supabase.co';
-var SB_KEY = localStorage.getItem('nutrichef_sbkey') || '';
+// Clé anon pour lecture publique (NutriChef)
+var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcmVnamJ5YXRub2F6eXlmd21qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxODMyMjAsImV4cCI6MjEwNTc1OTIyMH0.3wdp1l-61dSaFyVKDqKr9sM0SlUZT-y6wmDJ0Io9JhI';
+// Clé admin pour écriture (saisie par l'administrateur)
+var SB_KEY = localStorage.getItem('nutrichef_sbkey') || SB_ANON;
 
 var delId = null, ingN = 0;
 
@@ -445,9 +448,6 @@ function sbadge(s) {
 }
 function nn(id) { var v = document.getElementById(id).value; return v !== '' ? Number(v) : null; }
 function stags(id) { return document.getElementById(id).value.split(',').map(function(t) { return t.trim(); }).filter(Boolean); }
-function esc(s) { if (typeof s !== 'string') return s || ''; return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
-
-</script>
 </body>
-</html>
+</html></script></body></html>
