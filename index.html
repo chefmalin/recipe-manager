@@ -195,10 +195,8 @@ textarea{resize:vertical;min-height:70px}
 // CONFIGURATION SUPABASE
 // ═══════════════════════════════════════════════════════
 var SB_URL = 'https://naregjbyatnoazyyfwmj.supabase.co';
-// Clé anon pour lecture publique (NutriChef)
 var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hcmVnamJ5YXRub2F6eXlmd21qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxODMyMjAsImV4cCI6MjEwNTc1OTIyMH0.3wdp1l-61dSaFyVKDqKr9sM0SlUZT-y6wmDJ0Io9JhI';
-// Clé admin pour écriture (saisie par l'administrateur)
-var SB_KEY = localStorage.getItem('nutrichef_sbkey') || SB_ANON;
+var SB_KEY = SB_ANON;
 
 var delId = null, ingN = 0;
 
